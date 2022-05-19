@@ -1,0 +1,111 @@
+#include <iostream>
+#include <cstring>
+#include <string>
+using namespace std;
+
+//Bimsara IT21210938
+
+// Unregistered voter
+class UnregisteredVoter {
+private:
+	char name[20];
+	string pWord;
+	string num;
+	string mail;
+	string fb;
+
+public:
+
+	UnregisteredVoter(const char Uname[20], string pw, string pNum, string Umail);
+	void setFeedback(string add);
+	void displayfeedback();
+	~UnregisteredVoter();
+
+};
+UnregisteredVoter::UnregisteredVoter(const char Uname[20], string pw, string pNum, string Umail) {
+
+	strcpy(name, Uname);
+	pWord = pw;
+	num = pNum;
+	mail = Umail;
+}
+void UnregisteredVoter::setFeedback(string add) {
+	fb = add;
+}
+void UnregisteredVoter::displayfeedback() {
+	cout << "User name : " << name << endl;
+	cout << "User Phone Number : " << num << endl;
+	cout << "User Mail : " << mail << endl;
+	cout << "FeedBack : " << fb << endl;
+
+}
+UnregisteredVoter :: ~UnregisteredVoter() {
+	cout << "Unregistered Voter destructor running" << endl;
+	cout << "--------------------------------------" << endl;
+}
+
+//Registered voter
+
+class registeredVoter {
+private:
+	char Vname[20];
+	string fb;
+	char Candiname[20];
+	int voteN;
+public:
+	registeredVoter(const char Rname[20], string feedback);
+	void setCandidate(const char Cname[20], int vote);
+	void displayFeedback();
+	void displayResult();
+	~registeredVoter();
+
+};
+registeredVoter::registeredVoter(const char Rname[20], string feedback) {
+	strcpy(Vname, Rname);
+	fb = feedback;
+
+}
+void registeredVoter::setCandidate(const char Cname[20], int vote) {
+	strcpy(Candiname, Cname);
+	voteN = vote;
+
+}
+void registeredVoter::displayFeedback() {
+	cout << "User Name :" << Vname << endl;
+	cout << "FeedBack : " << fb << endl;
+
+}
+void registeredVoter::displayResult() {
+	cout << "Candidate Name: " << Candiname << endl;
+	cout << "Vote : " << voteN << endl;
+}
+
+registeredVoter :: ~registeredVoter() {
+	cout << "Registered Voter destructor running" << endl;
+	cout << "--------------------------------------" << endl;
+}
+
+//main program
+
+
+int main() {
+
+	UnregisteredVoter* g1;
+
+	g1 = new UnregisteredVoter("Nethisha", "pw123456", "+94715906662", "nethisha@gmail.com");
+
+	g1->setFeedback("Good Work");
+	g1->displayfeedback();
+
+	delete g1;
+
+	registeredVoter* r1;
+
+	r1 = new registeredVoter("Lasitha", "Good work, Keep it up.");
+	r1->setCandidate("Hemal Ranasinghe", 5);
+	r1->displayFeedback();
+	r1->displayResult();
+
+	delete r1;
+
+	system1* s1;
