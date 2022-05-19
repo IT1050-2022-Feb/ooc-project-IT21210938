@@ -1,0 +1,268 @@
+#include <iostream>
+#include <cstring>
+#include <string>
+using namespace std;
+
+//Bimsara IT21210938
+// Unregistered voter
+class UnregisteredVoter {
+private:
+	char name[20];
+	string pWord;
+	string num;
+	string mail;
+	string fb;
+
+public:
+
+	UnregisteredVoter(const char Uname[20], string pw, string pNum, string Umail);
+	void setFeedback(string add);
+	void displayfeedback();
+	~UnregisteredVoter();
+
+};
+UnregisteredVoter::UnregisteredVoter(const char Uname[20], string pw, string pNum, string Umail) {
+
+	strcpy(name, Uname);
+	pWord = pw;
+	num = pNum;
+	mail = Umail;
+}
+void UnregisteredVoter::setFeedback(string add) {
+	fb = add;
+}
+void UnregisteredVoter::displayfeedback() {
+	cout << "User name : " << name << endl;
+	cout << "User Phone Number : " << num << endl;
+	cout << "User Mail : " << mail << endl;
+	cout << "FeedBack : " << fb << endl;
+
+}
+UnregisteredVoter :: ~UnregisteredVoter() {
+	cout << "Unregistered Voter destructor running" << endl;
+	cout << "--------------------------------------" << endl;
+}
+
+//Registered voter
+
+class registeredVoter {
+private:
+	char Vname[20];
+	string fb;
+	char Candiname[20];
+	int voteN;
+public:
+	registeredVoter(const char Rname[20], string feedback);
+	void setCandidate(const char Cname[20], int vote);
+	void displayFeedback();
+	void displayResult();
+	~registeredVoter();
+
+};
+registeredVoter::registeredVoter(const char Rname[20], string feedback) {
+	strcpy(Vname, Rname);
+	fb = feedback;
+
+}
+void registeredVoter::setCandidate(const char Cname[20], int vote) {
+	strcpy(Candiname, Cname);
+	voteN = vote;
+
+}
+void registeredVoter::displayFeedback() {
+	cout << "User Name :" << Vname << endl;
+	cout << "FeedBack : " << fb << endl;
+
+}
+void registeredVoter::displayResult() {
+	cout << "Candidate Name: " << Candiname << endl;
+	cout << "Vote : " << voteN << endl;
+}
+
+registeredVoter :: ~registeredVoter() {
+	cout << "Registered Voter destructor running" << endl;
+	cout << "--------------------------------------" << endl;
+}
+
+//Nethisha IT21207204
+// System
+class system1 {
+private:
+	char c1[20];
+	char c2[20];
+	char c3[20];
+	int v1;
+	int v2;
+	int v3;
+public:
+	system1();
+	void setcandi(const char candi1[20], const char candi2[20], const char candi3[20]);
+	void setvote(int candiV1, int candiV2, int candiV3);
+	void displayResult();
+	~system1();
+};
+system1::system1() {
+
+}
+void system1::setcandi(const char candi1[20], const char candi2[20], const char candi3[20]) {
+	strcpy(c1, candi1);
+	strcpy(c2, candi2);
+	strcpy(c3, candi3);
+
+}
+void system1::setvote(int candiV1, int candiV2, int candiV3) {
+	v1 = candiV1;
+	v2 = candiV2;
+	v3 = candiV3;
+}
+void system1::displayResult() {
+	cout << "1st Candidate Name : " << c1 << endl;
+	cout << "vote :" << v1 << endl << endl;
+	cout << "2nd Candidate Name : " << c2 << endl;
+	cout << "vote :" << v2 << endl << endl;
+	cout << "3rd Candidate Name : " << c3 << endl;
+	cout << "vote :" << v3 << endl << endl;
+}
+system1 :: ~system1() {
+	cout << "system destructor running" << endl;
+	cout << "--------------------------------------" << endl;
+}
+//Admin
+class admin {
+private:
+	char name[20];
+	int num;
+public:
+	admin();
+	void setResult(const char candiname[20], int total);
+	void displayResult();
+	~admin();
+};
+admin::admin() {
+
+}
+void admin::setResult(const char candiname[20], int total) {
+	strcpy(name, candiname);
+	num = total;
+}
+void admin::displayResult() {
+	cout << "Winner : " << name << endl;
+	cout << "Total vote :" << num << endl;
+}
+admin:: ~admin() {
+	cout << "admin destructor running" << endl;
+	cout << "--------------------------------------" << endl;
+}
+
+//Lasitha IT21215124
+// Candidates
+class candidates {
+private:
+	char c1[20];
+	char c2[20];
+	char c3[20];
+public:
+	candidates(const char can1[20], const char can2[20], const char can3[20]);
+	void displayCandidates();
+	~candidates();
+};
+candidates::candidates(const char can1[20], const char can2[20], const char can3[20]) {
+	strcpy(c1, can1);
+	strcpy(c2, can2);
+	strcpy(c3, can3);
+}
+void candidates::displayCandidates() {
+	cout << "1st Candidate Name : " << c1 << endl;
+	cout << "2nd Candidate Name : " << c2 << endl;
+	cout << "3rd Candidate Name : " << c3 << endl;
+}
+candidates::~candidates() {
+	cout << "candidates destructor running" << endl;
+	cout << "--------------------------------------" << endl;
+}
+//Feedback
+class feedback {
+private:
+	char name[20];
+	string fb;
+public:
+	feedback(const char Uname[20], string feedback);
+	void displayFB();
+	~feedback();
+};
+feedback::feedback(const char Uname[20], string feedback) {
+	strcpy(name, Uname);
+	fb = feedback;
+}
+void feedback::displayFB() {
+	cout << "User Name : " << name << endl;
+	cout << "Feedback : " << fb << endl;
+}
+feedback::~feedback() {
+	cout << "feedback destructor running" << endl;
+	cout << "--------------------------------------" << endl;
+}
+
+int main() {
+  
+  //Bimsara IT21210938
+  
+	UnregisteredVoter* g1;
+
+	g1 = new UnregisteredVoter("Nethisha", "pw123456", "+94715906662", "nethisha@gmail.com");
+
+	g1->setFeedback("Good Work");
+	g1->displayfeedback();
+
+	delete g1;
+
+	registeredVoter* r1;
+
+	r1 = new registeredVoter("Lasitha", "Good work, Keep it up.");
+	r1->setCandidate("Hemal Ranasinghe", 5);
+	r1->displayFeedback();
+	r1->displayResult();
+
+	delete r1;
+  
+  //Nethisha IT21207204
+  
+	system1* s1;
+
+	s1 = new system1();
+	s1->setcandi("Hemal Ranasighe", "Thumindu Dodantenna", "Kalana Gunasekara");
+	s1->setvote(5, 3, 4);
+	s1->displayResult();
+
+	delete s1;
+
+	admin* a1;
+
+	a1 = new admin();
+
+	a1->setResult("Hemal Ranasinghe", 1321);
+	a1->displayResult();
+
+	delete a1;
+  
+  //Lasitha IT21215124
+  
+	candidates* c1;
+	c1 = new candidates("Hemal Ranasighe", "Thumindu Dodantenna", "Kalana Gunasekara");
+
+	c1->displayCandidates();
+
+	delete c1;
+
+	feedback* f1;
+
+	f1 = new feedback("Bimsara", "Good Work");
+	f1->displayFB();
+
+	delete f1;
+
+
+	return 0;
+
+
+}
